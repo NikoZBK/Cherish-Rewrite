@@ -1,67 +1,84 @@
-import { Events } from '../eventhub/Events.js';
-import Service from './Service.js';
+import { Events } from "../eventhub/Events.js";
+import Service from "./Service.js";
 
 export class LocalStorageService extends Service {
   constructor() {
     super();
-    this.dbName = 'calendarDB';
-    this.storeName = 'calendar';
+    this.dbName = "calendarDB";
+    this.storeName = "calendar";
     this.db = null;
 
     this.initDB()
       .then(() => {
         this.loadCalendarFromDB();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
 
   async initDB() {
     return new Promise((resolve, reject) => {
-      const req = indexedDB.open(this.dbName, 1);
+      const request = indexedDB.open(this.dbName, 1);
 
-      req.onupgradeneeded = e => {
+      request.onupgradeneeded = (e) => {
         const db = e.target.result;
         db.createObjectStore(this.storeName, {
-          keyPath: 'id',
+          keyPath: "id",
           autoIncrement: true,
         });
       };
 
-      req.onsuccess = e => {
+      request.onsuccess = (e) => {
         this.db = e.target.result;
         resolve(this.db);
       };
 
-      req.onerror = () => {
-        reject('Error initializing IndexedDB');
+      request.onerror = () => {
+        reject("Error initializing IndexedDB");
       };
     });
   }
 
   async storeDay(dayData) {
     return new Promise((resolve, reject) => {
-      const transaction = this.db.transaction([this.storeName], 'readwrite');
+      const transaction = this.db.transaction([this.storeName], "readwrite");
       const store = transaction.objectStore(this.storeName);
-      store.add(dayData);
-      transaction.oncomplete = () => {
-        this.publish(Events.StoreUserDataSuccess, dayData);
-        resolve('Day data stored successfully');
+      const request = store.add(dayData);
+
+      request.onsuccess = () => {
+        this.publish(Events.StoreUserDaySuccess, dayData);
+        resolve("Day data stored successfully");
       };
-      transaction.onerror = () => {
-        this.publish(Events.StoreUserDataFailure, dayData);
-        reject('Error storing day data');
+
+      request.onerror = () => {
+        this.publish(Events.StoreUserDayFailure, dayData);
+        reject("Error storing day data");
       };
     });
   }
 
-  async unStoreDay(dayData) {
-    // TODO
+  async deleteDay(dayData) {
+    return new Promise((resolve, reject) => {
+      const transaction = this.db.transaction([this.storeName], "readwrite");
+      const store = transaction.objectStore(this.storeName);
+      const request = store.remove(dayData.id);
+
+      request.oncomplete = () => {
+        this.publish(Events.DeleteUserDaySuccess, dayData);
+        resolve("Day data deleted successfully");
+      };
+      request.onerror = () => {
+        this.publish(Events.DeleteUserDayFailure, dayData);
+        reject("Error deleting day data");
+      };
+    });
   }
 
   async loadCalendarFromDB() {
-    // TODO
+    const transaction = this.db.transaction([this.storeName], "readonly");
+    const store = transaction.objectStore(this.storeName);
+    const request = store.getAll();
   }
 
   async clearCalendar() {
