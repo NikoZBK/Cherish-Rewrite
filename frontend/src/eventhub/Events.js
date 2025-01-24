@@ -1,50 +1,48 @@
 export const Events = {
   // View Switching Events:
-  SwitchToCalendarView: "SwitchToCalendarView",
-  SwitchToCheckInView: "SwitchToCheckInView",
-  SwitchToDayView: "SwitchToDayView",
-  SwitchToJournalView: "SwitchToJournalView",
-  SwitchToSummaryView: "SwitchToSummaryView",
-  SwitchToSettingsView: "SwitchToSettingsView",
+  SwitchToCalendarView: 'SwitchToCalendarView',
+  SwitchToCheckInView: 'SwitchToCheckInView',
+  SwitchToDayView: 'SwitchToDayView',
+  SwitchToJournalView: 'SwitchToJournalView',
+  SwitchToSummaryView: 'SwitchToSummaryView',
+  SwitchToSettingsView: 'SwitchToSettingsView',
 
   // TODO: Add granular data events (like store journal, store check-in, etc.)
   // Data Events
-  RestoreUserData: "RestoreUserData",
-  RestoreUserDataSuccess: "RestoreUserDataSuccess",
-  RestoreUserDataFailure: "RestoreUserDataFailure",
+  RestoreUserData: 'RestoreUserData',
+  RestoreUserDataSuccess: 'RestoreUserDataSuccess',
+  RestoreUserDataFailure: 'RestoreUserDataFailure',
 
-  StoreUserData: "StoreUserData",
-  StoreUserDataSuccess: "StoreUserDataSuccess",
-  StoreUserDataFailure: "StoreUserDataFailure",
+  StoreUserData: 'StoreUserData',
+  StoreUserDataSuccess: 'StoreUserDataSuccess',
+  StoreUserDataFailure: 'StoreUserDataFailure',
 
-  DeleteUserData: "DeleteUserData",
-  DeleteUserDataSuccess: "DeleteUserDataSuccess",
-  DeleteUserDataFailure: "DeleteUserDataFailure",
+  DeleteUserData: 'DeleteUserData',
+  DeleteUserDataSuccess: 'DeleteUserDataSuccess',
+  DeleteUserDataFailure: 'DeleteUserDataFailure',
 
-  RestoreUserDay: "RestoreUserDay",
-  RestoreUserDaySuccess: "RestoreUserDaySuccess",
-  RestoreUserDayFailure: "RestoreUserDayFailure",
+  RestoreUserDay: 'RestoreUserDay',
+  RestoreUserDaySuccess: 'RestoreUserDaySuccess',
+  RestoreUserDayFailure: 'RestoreUserDayFailure',
 
-  StoreUserDay: "StoreUserDay",
-  StoreUserDaySuccess: "StoreUserDaySuccess",
-  StoreUserDayFailure: "StoreUserDayFailure",
+  StoreUserDay: 'StoreUserDay',
+  StoreUserDaySuccess: 'StoreUserDaySuccess',
+  StoreUserDayFailure: 'StoreUserDayFailure',
 
-  DeleteUserDay: "DeleteUserDay",
-  DeleteUserDaySuccess: "DeleteUserDaySuccess",
-  DeleteUserDayFailure: "DeleteUserDayFailure",
-
-  NewDay: "NewDay",
+  DeleteUserDay: 'DeleteUserDay',
+  DeleteUserDaySuccess: 'DeleteUserDaySuccess',
+  DeleteUserDayFailure: 'DeleteUserDayFailure',
 
   // User Events:
-  RegisterUser: "RegisterUser",
-  RegisterUserSuccess: "RegisterUserSuccess",
-  RegisterUserFailure: "RegisterUserFailure",
+  RegisterUser: 'RegisterUser',
+  RegisterUserSuccess: 'RegisterUserSuccess',
+  RegisterUserFailure: 'RegisterUserFailure',
 
-  AuthenticateUser: "AuthenticateUser",
-  AuthenticateUserSuccess: "AuthenticateUserSuccess",
-  AuthenticateUserFailure: "AuthenticateUserFailure",
+  AuthenticateUser: 'AuthenticateUser',
+  AuthenticateUserSuccess: 'AuthenticateUserSuccess',
+  AuthenticateUserFailure: 'AuthenticateUserFailure',
 
-  LogoutUser: "LogoutUser",
-  LogoutUserSuccess: "LogoutUserSuccess",
-  LogoutUserFailure: "LogoutUserFailure",
+  LogoutUser: 'LogoutUser',
+  LogoutUserSuccess: 'LogoutUserSuccess',
+  LogoutUserFailure: 'LogoutUserFailure',
 };
