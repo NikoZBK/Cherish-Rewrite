@@ -7,7 +7,6 @@ export const Events = {
   SwitchToSummaryView: 'SwitchToSummaryView',
   SwitchToSettingsView: 'SwitchToSettingsView',
 
-  // TODO: Add granular data events (like store journal, store check-in, etc.)
   // Data Events
   RestoreUserData: 'RestoreUserData',
   RestoreUserDataSuccess: 'RestoreUserDataSuccess',
@@ -25,6 +24,15 @@ export const Events = {
   RestoreUserDaySuccess: 'RestoreUserDaySuccess',
   RestoreUserDayFailure: 'RestoreUserDayFailure',
 
+  // TODO: Have granular data events (like store day, store journal, store check-in, etc.)
+  // TODO: respond to StoreUserData
+
+  /* Granular Data Events */
+
+  RestoreUserDay: 'RestoreUserDay',
+  RestoreUserDaySuccess: 'RestoreUserDaySuccess',
+  RestoreUserDayFailure: 'RestoreUserDayFailure',
+
   StoreUserDay: 'StoreUserDay',
   StoreUserDaySuccess: 'StoreUserDaySuccess',
   StoreUserDayFailure: 'StoreUserDayFailure',
@@ -32,6 +40,10 @@ export const Events = {
   DeleteUserDay: 'DeleteUserDay',
   DeleteUserDaySuccess: 'DeleteUserDaySuccess',
   DeleteUserDayFailure: 'DeleteUserDayFailure',
+
+  StoreUserJournal: 'StoreUserJournal',
+  StoreUserJournalSuccess: 'StoreUserJournalSuccess',
+  StoreUserJournalFailure: 'StoreUserJournalFailure',
 
   // User Events:
   RegisterUser: 'RegisterUser',
