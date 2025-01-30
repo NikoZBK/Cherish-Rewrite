@@ -1,7 +1,7 @@
 import { Events } from '../eventhub/Events.js';
 import Service from './Service.js';
 
-export class LocalStorageService extends Service {
+export class IDBStorageService extends Service {
   constructor() {
     super();
     this.dbName = 'calendarDB';
@@ -38,6 +38,10 @@ export class LocalStorageService extends Service {
         reject('Error initializing IndexedDB');
       };
     });
+  }
+
+  async restoreDay(dayData) {
+    return new Promise((resolve, reject) => {});
   }
 
   async storeDay(dayData) {
@@ -82,11 +86,12 @@ export class LocalStorageService extends Service {
 
     request.onsuccess = e => {
       const days = e.target.result; // TODO: Validation
-      days.forEach(day => this.publish(Events.NewDay, day));
     };
   }
 
   async clearCalendar() {
     // TODO
   }
+
+  async newRequest() {}
 }

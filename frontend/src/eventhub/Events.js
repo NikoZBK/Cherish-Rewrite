@@ -20,13 +20,6 @@ export const Events = {
   DeleteUserDataSuccess: 'DeleteUserDataSuccess',
   DeleteUserDataFailure: 'DeleteUserDataFailure',
 
-  RestoreUserDay: 'RestoreUserDay',
-  RestoreUserDaySuccess: 'RestoreUserDaySuccess',
-  RestoreUserDayFailure: 'RestoreUserDayFailure',
-
-  // TODO: Have granular data events (like store day, store journal, store check-in, etc.)
-  // TODO: respond to StoreUserData
-
   /* Granular Data Events */
 
   RestoreUserDay: 'RestoreUserDay',
@@ -41,9 +34,17 @@ export const Events = {
   DeleteUserDaySuccess: 'DeleteUserDaySuccess',
   DeleteUserDayFailure: 'DeleteUserDayFailure',
 
+  RestoreUserJournal: 'RestoreUserJournal',
+  RestoreUserJournalSuccess: 'RestoreUserJournalSuccess',
+  RestoreUserJournalFailure: 'RestoreUserJournalFailure',
+
   StoreUserJournal: 'StoreUserJournal',
   StoreUserJournalSuccess: 'StoreUserJournalSuccess',
   StoreUserJournalFailure: 'StoreUserJournalFailure',
+
+  DeleteUserJournal: 'DeleteUserJournal',
+  DeleteUserJournalSuccess: 'DeleteUserJournalSuccess',
+  DeleteUserJournalFailure: 'DeleteUserJournalFailure',
 
   // User Events:
   RegisterUser: 'RegisterUser',
